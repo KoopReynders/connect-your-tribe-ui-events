@@ -23,7 +23,7 @@ h1{
 }
 p.helper{
     position: absolute;
-    top: -5rem;
+    top: -5.2rem;
     left: 36%;
     height: 2rem;
     font-size: 0.8rem;
@@ -55,11 +55,12 @@ nav{
     position: relative;
     background-color: var(--highlight-primary);
     /* background-color: rgba(124, 231, 201,.70); */
-    transition: all 200ms ease-in-out;
     color: var(--secondary);
+    height:14rem;
     padding: 1rem;
-    margin:-2.5rem 0 2rem 0;
+    margin:-2.8rem 0 2rem 0;
     border-radius: var(--radius);
+    transition: all 200ms ease-in-out;
 }
 nav h2{
     font-size: 1rem;
@@ -94,7 +95,7 @@ nav label button:active{
 }
 
 .hide{
-    margin-top: -16rem;
+    margin-top: -16.8rem;
     /* transform: translateY(200px); */
 }
 

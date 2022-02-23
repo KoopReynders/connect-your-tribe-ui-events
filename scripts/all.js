@@ -45,13 +45,13 @@ function color_highlight(me){
 //KEYDOWN
 document.addEventListener("keydown",keydown)
 function keydown(e){
-    e.preventDefault();
 
     //Toon menu
     //console.log("keydown: ",e.code)
     if(e.code == "Space"){
-        console.log("TOON MENU")
-        menu.classList.toggle("hide")
+        console.log("TOON MENU");
+        menu.classList.toggle("hide");
+        e.preventDefault();
         return;
     }
 
@@ -67,9 +67,7 @@ function keydown(e){
                 element.classList.remove("green")
                 element.classList.remove("highlight")
             })
-          break;
-          case 'spatie':
-            //als de keydown een spatie
+            e.preventDefault();
           break;
         default:
             //check welke letter overeenkomt met de eerste letter van een element
@@ -78,6 +76,7 @@ function keydown(e){
                if(element.textContent.charAt(0).toLowerCase() == letter) {
                     console.log(element)
                     element.classList.toggle("highlight")
+                    e.preventDefault();
                 } 
             }); //end:forEach
       };//end: switch
@@ -101,15 +100,15 @@ function longpress_clear(){
 const helper = document.querySelector(".helper");
 const helper_close = document.querySelector("nav button");
 window.onload = function() {
-    console.log("onload")
+    // console.log("onload")
     helper.classList.add("showhelper");
     window.focus();
   };
 helper.addEventListener("click",function(e){
-    e.preventDefault();
     menu.classList.toggle("hide")
+    // e.preventDefault();
 });
 helper_close.addEventListener("click",function(e){
-    e.preventDefault();
     menu.classList.toggle("hide")
+    // e.preventDefault();
 });
