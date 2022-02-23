@@ -2,7 +2,7 @@
 //ELEMENTS
 //query elementen
 var items = document.querySelectorAll("a");
-console.log(items)
+var menu = document.querySelector("nav");
 var touchy = 'ontouchstart' in window;
 document.querySelector("section").insertAdjacentHTML("beforeend", "<a href='#'>ontouchstart: " + touchy + "</a>");
 
@@ -10,7 +10,6 @@ document.querySelector("section").insertAdjacentHTML("beforeend", "<a href='#'>o
 //EVENT LISTENERS
 //add eventlisteners
 items.forEach(element => {
-    
     if(touchy){
         element.addEventListener("click",color_green);
         element.addEventListener("touchstart",longpress_start);
@@ -26,48 +25,63 @@ items.forEach(element => {
 function color_green(e){
     console.log("color_green", this)
     this.classList.toggle("green")
-    // this.classList.remove("purple")
-    e.preventDefault();
+    //this.classList.remove("purple")
+    //e.preventDefault();
 }
 function color_purple(e){
     console.log("color_purple", this)
     this.classList.toggle("purple")
-    // this.classList.remove("green")
-    e.preventDefault();
+    //this.classList.remove("green")
+    //e.preventDefault();
 }
 function color_highlight(me){
-    console.log("color_highlight", this)
+    //console.log("color_highlight", this)
     console.log("clearcolor", me)
     me.classList.toggle("highlight")
-    me.classList.remove("purple")
-    me.classList.remove("green")
+    //me.classList.remove("purple")
+    //me.classList.remove("green")
 }
 
 //KEYDOWN
 document.addEventListener("keydown",keydown)
 function keydown(e){
-    console.log("keydown: " + e.key)
-    //als de keydown een 'x' is
-    //alle classes weghalen en functie stoppen
-    if(e.key == "x"){
-        items.forEach(element => {
-            element.classList.remove("purple")
-            element.classList.remove("green")
-            element.classList.remove("highlight")
-        })
+    e.preventDefault();
+
+    //Toon menu
+    //console.log("keydown: ",e.code)
+    if(e.code == "Space"){
+        console.log("TOON MENU")
+        menu.classList.toggle("hide")
+
         return;
     }
-    //check welke letter overeenkomt met de eerste letter van een element
-    //de elementen krijgen een highlight
-    items.forEach(element => {     
-        // console.log(element)
-        // console.log(element.textContent)
-        // console.log(element.textContent.charAt(0).toLowerCase())
-        if(element.textContent.charAt(0).toLowerCase() == e.key) {
-            console.log(element)
-            element.classList.toggle("highlight")
-        } 
-    });
+
+    //Doe iets met een letter
+    const letter = e.key;
+    //console.log("keydown: " + letter)
+    switch (letter) {
+        case 'x':
+            //als de keydown een 'x' is
+            //alle classes weghalen en functie stoppen
+            items.forEach(element => {
+                element.classList.remove("purple")
+                element.classList.remove("green")
+                element.classList.remove("highlight")
+            })
+          break;
+          case 'spatie':
+            //als de keydown een spatie
+          break;
+        default:
+            //check welke letter overeenkomt met de eerste letter van een element
+            //de elementen krijgen een highlight
+            items.forEach(element => {     
+               if(element.textContent.charAt(0).toLowerCase() == letter) {
+                    console.log(element)
+                    element.classList.toggle("highlight")
+                } 
+            }); //end:forEach
+      };//end: switch
 }
 
 //LONGPRESS 
@@ -83,3 +97,10 @@ function longpress_start(e){
 function longpress_clear(){
     clearTimeout(this.timer);
 }
+
+//SHOW HELPER
+window.onload = function() {
+    console.log("onload")
+    document.querySelector(".helper").classList.add("showhelper");
+    window.focus();
+  };

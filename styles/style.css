@@ -2,7 +2,7 @@
 :root {
 	--primary: #fff;
 	--secondary: #050840;
-	--highlight-primary:#7ce7c9;
+	--highlight-primary:#7ee7c9;
 	--highlight-secondary: #9d7beb;
    	--radius:.5rem;
     --pill: 2rem;
@@ -18,9 +18,51 @@ body{
     background: var(--secondary);
     color: var(--primary);
 }
+h1{
+    display: none;
+}
+p.helper{
+    position: absolute;
+    top: -5rem;
+    left: 36%;
+    height: 2rem;
+    font-size: 0.8rem;
+    background-color: var(--highlight-primary);
+    color: var(--secondary);
+    padding: 0.2rem 0.8rem;
+    display: flex;
+    align-items: flex-end;
+    border-radius: var(--radius);
+}
+p.showhelper{
+    top: -1.5rem;
+    transition: all 1s ease-in-out 5s;
+}
+nav{
+    position: relative;
+    background-color: var(--highlight-primary);
+    /* background-color: rgba(124, 231, 201,.70); */
+    transition: all 200ms ease-in-out;
+    color: var(--secondary);
+    padding: 1rem;
+    margin:-2.5rem 0 2rem 0;
+    border-radius: var(--radius);
+}
+nav h2{
+    font-size: 1rem;
+}
+nav p{
+    font-size: 0.8rem;
+}
+.hide{
+    margin-top: -16rem;
+    /* transform: translateY(200px); */
+}
+
 section{
     /* background: pink; */
     max-width: 90vw;
+    padding-top: 1rem;
 }
 
 /* 
