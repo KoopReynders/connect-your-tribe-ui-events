@@ -52,7 +52,6 @@ function keydown(e){
     if(e.code == "Space"){
         console.log("TOON MENU")
         menu.classList.toggle("hide")
-
         return;
     }
 
@@ -99,8 +98,18 @@ function longpress_clear(){
 }
 
 //SHOW HELPER
+const helper = document.querySelector(".helper");
+const helper_close = document.querySelector("nav button");
 window.onload = function() {
     console.log("onload")
-    document.querySelector(".helper").classList.add("showhelper");
+    helper.classList.add("showhelper");
     window.focus();
   };
+helper.addEventListener("click",function(e){
+    e.preventDefault();
+    menu.classList.toggle("hide")
+});
+helper_close.addEventListener("click",function(e){
+    e.preventDefault();
+    menu.classList.toggle("hide")
+});

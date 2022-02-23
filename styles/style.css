@@ -33,7 +33,20 @@ p.helper{
     display: flex;
     align-items: flex-end;
     border-radius: var(--radius);
+    border: 1px solid var(--highlight-primary);
 }
+p.helper:hover {
+    background-color: var(--secondary);
+    color: var(--highlight-primary);
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+}
+/* p.helper a{
+    color: var(--secondary)
+}
+p.helper:hover a{
+    color: var(--highlight-primary)
+} */
 p.showhelper{
     top: -1.5rem;
     transition: all 1s ease-in-out 5s;
@@ -54,21 +67,46 @@ nav h2{
 nav p{
     font-size: 0.8rem;
 }
+nav label{
+    position: absolute;
+    right: 1.2rem;
+    top: 1.8rem;
+    width: 2rem;
+    text-align: center;
+    font-size: 0.7rem;
+}
+nav label button{
+    background: var(--highlight-primary);
+    border-radius: var(--pill);
+    font-weight: bold;
+    /* border: none; */
+    border: 1px solid var(--secondary);
+    transform: scale(1.1);
+    margin-bottom: 0.2rem;
+}
+nav label button:hover{
+    background: var(--secondary);
+    color: var(--highlight-primary);
+    cursor: pointer;
+}
+nav label button:active{
+    transform: scale(1.4);
+}
+
 .hide{
     margin-top: -16rem;
     /* transform: translateY(200px); */
 }
 
+/* 
+    Button dingen
+*/
 section{
     /* background: pink; */
     max-width: 90vw;
     padding-top: 1rem;
 }
-
-/* 
-    Button dingen
-*/
-a {
+section a {
     display: inline-block;
     margin: .2em;
     padding: .4em 0.8em;
@@ -80,11 +118,11 @@ a {
     text-decoration: none;
     transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-a:hover {
+section a:hover {
     transform: scale(0.8);
     /* margin: 1rem; */
  }
- a:focus {
+section a:focus {
     transform: scale(1);
  }
 
