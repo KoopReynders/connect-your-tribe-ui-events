@@ -4,13 +4,13 @@
 var items = document.querySelectorAll("a");
 var menu = document.querySelector("nav");
 var touchy = 'ontouchstart' in window;
-document.querySelector("section").insertAdjacentHTML("beforeend", "<a href='#'>ontouchstart: " + touchy + "</a>");
-
+touchy = false;
 
 //EVENT LISTENERS
 //add eventlisteners
 items.forEach(element => {
     if(touchy){
+        document.querySelector("section").insertAdjacentHTML("beforeend", "<a href='#'>ontouchstart: " + touchy + "</a>");
         element.addEventListener("click",color_green);
         element.addEventListener("touchstart",longpress_start);
         element.addEventListener("touchend",longpress_clear);
@@ -35,8 +35,8 @@ function color_purple(e){
     //e.preventDefault();
 }
 function color_highlight(me){
-    //console.log("color_highlight", this)
-    console.log("clearcolor", me)
+    console.log("color_highlight", this)
+    // console.log("clearcolor", me)
     me.classList.toggle("highlight")
     //me.classList.remove("purple")
     //me.classList.remove("green")
@@ -97,11 +97,11 @@ function longpress_clear(){
 }
 
 //SHOW HELPER
-const helper = document.querySelector(".helper");
+const helper = document.querySelector("button#help");
 const helper_close = document.querySelector("nav button");
 window.onload = function() {
-    // console.log("onload")
-    helper.classList.add("showhelper");
+    console.log("onload")
+    document.querySelector("label[for='help']").classList.add("showhelper");
     window.focus();
   };
 helper.addEventListener("click",function(e){

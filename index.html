@@ -9,19 +9,18 @@
 </head>
 <body>
     <h1>Sprint 7 - FDND</h1>
-    <p class="helper">
-        hit spacebar to view user manual
-    </p>
+    <label for="help"><button id="help">?</button> press spacebar for help</label>
  
     <nav class="hide">
-        <h2>User manual</h2>
-        <p>Click a button to change the color to green.</p>
-        <p>Double-Click a button to change the color to purple.</p>
-        <p>Long-Press a button to change the color to yellow.</p>
-        <p>Press the first letter of a button-label to change it to yellow.</p>
-        <p>Hit the 'x' key for a color reset.</p>
-        
-        <label for="close"><button>&#120;</button> close</label>
+        <h2>Help? Read the user manual:</h2>
+        <ol>
+            <li>Click a button to change the color to <span class="green">green</span>.</li>
+            <li>Double-Click a button to change the color to <span class="purple">purple</span>.</li>
+            <li>Long-Press a button to change the color to <span class="highlight">yellow</span>.</li>
+            <li>Press the first letter of a button-label to change it to <span class="highlight">yellow</span>.</li>
+            <li>Hit the 'x' key for a color reset.</li>
+        </ol>        
+        <label for="close"><button id="close">&#120;</button> close</label>
     </nav>
 
     <section>

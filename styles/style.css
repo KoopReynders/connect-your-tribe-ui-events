@@ -21,25 +21,35 @@ body{
 h1{
     display: none;
 }
-p.helper{
+label[for="help"]{
     position: absolute;
-    top: -5.2rem;
-    left: 36%;
-    height: 2rem;
+    top: -3rem;
+    left: 3rem;
+    /* width: 2rem; */
+    text-align: center;
     font-size: 0.8rem;
-    background-color: var(--highlight-primary);
-    color: var(--secondary);
-    padding: 0.2rem 0.8rem;
-    display: flex;
-    align-items: flex-end;
-    border-radius: var(--radius);
-    border: 1px solid var(--highlight-primary);
-}
-p.helper:hover {
-    background-color: var(--secondary);
     color: var(--highlight-primary);
-    transition: all 100ms ease-in-out;
+}
+label[for="help"] button{
+    background: var(--highlight-primary);
+    border-radius: var(--pill);
+    font-weight: bold;
+    /* border: none; */
+    border: 1px solid var(--highlight-primary);
+    transform: scale(1.1);
+    margin-bottom: 0.2rem;
+}
+label[for="help"] button:hover{
+    background: var(--secondary);
+    color: var(--highlight-primary);
     cursor: pointer;
+}
+label[for="help"] button:active{
+    transform: scale(1.3);
+}
+label[for="help"].showhelper{
+    top: 0.4rem;
+    transition: all 1s ease-in-out 5s;
 }
 /* p.helper a{
     color: var(--secondary)
@@ -47,30 +57,33 @@ p.helper:hover {
 p.helper:hover a{
     color: var(--highlight-primary)
 } */
-p.showhelper{
-    top: -1.5rem;
-    transition: all 1s ease-in-out 5s;
-}
+
 nav{
     position: relative;
     background-color: var(--highlight-primary);
     /* background-color: rgba(124, 231, 201,.70); */
     color: var(--secondary);
-    height:14rem;
-    padding: 1rem;
-    margin:-2.8rem 0 2rem 0;
+    height: 14rem;
+    padding: 1rem 3rem ;
+    margin: -2.8rem -2rem 2rem -2rem;
     border-radius: var(--radius);
     transition: all 200ms ease-in-out;
 }
 nav h2{
+    margin-top: 1.5rem;
     font-size: 1rem;
 }
-nav p{
-    font-size: 0.8rem;
+nav ol{
+    margin: 1.2rem 0;
+    padding: 0 0 0 1.5rem;
+}
+nav li{
+    margin: 0.4rem 0 0 0;
+    font-size: 0.9rem;
 }
 nav label{
     position: absolute;
-    right: 1.2rem;
+    left: 26rem;
     top: 1.8rem;
     width: 2rem;
     text-align: center;
@@ -95,7 +108,7 @@ nav label button:active{
 }
 
 .hide{
-    margin-top: -16.8rem;
+    margin-top: -16.8rem; /* height: 14rem + margin: 2.8rem */
     /* transform: translateY(200px); */
 }
 
@@ -128,12 +141,15 @@ section a:focus {
  }
 
  /*
-    KEUREN
+    KLEUREN
  */
  .purple{
      background: var(--highlight-secondary);
      color: var(--secondary);
      border: var(--secondary);
+ }
+ nav span.green{
+    border: 1px solid var(--secondary);
  }
  .green{
     background: var(--highlight-primary);
