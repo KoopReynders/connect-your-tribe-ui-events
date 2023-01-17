@@ -3,25 +3,18 @@
 //query elementen
 var items = document.querySelectorAll("a");
 var menu = document.querySelector("nav");
-var touchy = 'ontouchstart' in window;
-touchy = false;
 
 //EVENT LISTENERS
 //add eventlisteners
 items.forEach(element => {
-    if(touchy){
-        document.querySelector("section").insertAdjacentHTML("beforeend", "<a href='#'>ontouchstart: " + touchy + "</a>");
-        element.addEventListener("click",color_green);
-        element.addEventListener("touchstart",longpress_start);
-        element.addEventListener("touchend",longpress_clear);
-    }else{
-        element.addEventListener("mousedown",color_green);
-        element.addEventListener("mousedown",longpress_start);
-        element.addEventListener("mouseup",longpress_clear);
-    }
+    element.addEventListener("click",color_green);
     element.addEventListener("dblclick",color_purple);
+    element.addEventListener("mousedown",longpress_start);
+    element.addEventListener("mouseup",longpress_clear);
 });
-//FUNCTIONS
+
+//FUNCTIONS 
+//SET COLORS
 function color_green(e){
     console.log("color_green", this)
     this.classList.toggle("green")
@@ -40,6 +33,19 @@ function color_highlight(me){
     me.classList.toggle("highlight")
     //me.classList.remove("purple")
     //me.classList.remove("green")
+}
+
+//LONGPRESS 
+//set timers
+//na 2 sec krijgt het element een highlight
+function longpress_start(e){
+    //console.log("longpress", this)
+    this.timer = window.setTimeout(color_highlight,2000,this);
+    e.preventDefault();
+}
+//clear time out 
+function longpress_clear(){
+    clearTimeout(this.timer);
 }
 
 //KEYDOWN
@@ -80,20 +86,6 @@ function keydown(e){
                 } 
             }); //end:forEach
       };//end: switch
-}
-
-//LONGPRESS 
-//set timers
-//na 2 sec krijgt het element een highlight
-function longpress_start(e){
-    //console.log("longpress", this)
-    this.timer = window.setTimeout(color_highlight,2000,this);
-    e.preventDefault();
-}
-
-//clear time out 
-function longpress_clear(){
-    clearTimeout(this.timer);
 }
 
 //SHOW HELPER
