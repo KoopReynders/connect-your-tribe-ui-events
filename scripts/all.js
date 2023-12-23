@@ -30,9 +30,8 @@ function color_purple(e){
 function color_highlight(me){
     console.log("color_highlight", this)
     // console.log("clearcolor", me)
-    me.classList.toggle("highlight")
-    //me.classList.remove("purple")
-    //me.classList.remove("green")
+    // me.classList.toggle("yellow")
+    me.classList.toggle("pink")
 }
 
 //LONGPRESS 
@@ -71,7 +70,8 @@ function keydown(e){
             items.forEach(element => {
                 element.classList.remove("purple")
                 element.classList.remove("green")
-                element.classList.remove("highlight")
+                element.classList.remove("yellow")
+                element.classList.remove("pink")
             })
             e.preventDefault();
           break;
@@ -81,7 +81,7 @@ function keydown(e){
             items.forEach(element => {     
                if(element.textContent.charAt(0).toLowerCase() == letter) {
                     console.log(element)
-                    element.classList.toggle("highlight")
+                    element.classList.toggle("yellow")
                     e.preventDefault();
                 } 
             }); //end:forEach
