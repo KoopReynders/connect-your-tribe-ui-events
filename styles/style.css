@@ -155,13 +155,14 @@ section a:focus {
     color: var(--secondary);
     border: var(--secondary);
 }
- .yellow{
-    background: gold;
-    color: var(--secondary);
-    border: var(--secondary);
- }
  .pink{
     background: lightcoral;
     color: var(--secondary);
     border: var(--secondary);
  }
+ .yellow{
+    background: gold;
+    color: var(--secondary);
+    border: var(--secondary);
+ }
+
